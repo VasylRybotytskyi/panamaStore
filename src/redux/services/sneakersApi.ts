@@ -132,7 +132,7 @@ export const sneakersApi = createApi({
           const querySnapshot = await getDocs(sneakersRef);
 
           let sneakers = [];
-          const searchTerm = q.toLowerCase();
+          const searchTerm = q?.toLowerCase();
           querySnapshot.forEach((doc) => {
             const name = doc.data().name.toLowerCase();
             if (name.startsWith(searchTerm)) {

@@ -5,3 +5,17 @@ body {
   font-weight: 400;
   font-style: normal;
 } */
+.mainSwiper {
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+:root {
+  --swiper-navigation-color: #fff;
+  --swiper-navigation-size: 10px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  font-size: var(--swiper-navigation-size);
+}

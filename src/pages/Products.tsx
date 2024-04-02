@@ -6,14 +6,10 @@ import FilterBar from "../components/FilterBar";
 import { Logo, Nike } from "../utils/CreateIcon";
 import FilterPrice from "../components/FilterPrice";
 
-// const prices =[
-//   { name: "від 500 до 1000", value: "adidas", icon: <Logo sx={{ width: "20px" }} /> },
-//   { name: "Найк", value: "puma", icon: <Nike sx={{ width: "20px" }} /> },
-// ]
-
 const brands = [
-  { name: "Адідас", value: "adidas", icon: <Logo sx={{ width: "20px" }} /> },
-  { name: "Найк", value: "puma", icon: <Nike sx={{ width: "20px" }} /> },
+  { name: "Adidas", value: "adidas", icon: <Logo sx={{ width: "20px" }} /> },
+  { name: "Nike", value: "puma", icon: <Nike sx={{ width: "20px" }} /> },
+  { name: "Nike", value: "puma", icon: <Nike sx={{ width: "20px" }} /> },
 ];
 
 const sexs = [
@@ -69,7 +65,6 @@ const Products = () => {
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState([]);
   const [size, setSize] = useState([]);
-  console.log(size);
 
   const { data } = useQuerySneakerQuery({
     q: searh,
@@ -82,11 +77,10 @@ const Products = () => {
   useEffect(() => {
     if (data) {
       setSneakers(data);
-      console.log(data);
     }
   }, [data]);
   return (
-    <Container maxWidth="xl" sx={{ pt: "60px" }}>
+    <Container maxWidth="lg" sx={{ pt: "10px" }}>
       <Box
         display="flex"
         justifyContent="space-between"

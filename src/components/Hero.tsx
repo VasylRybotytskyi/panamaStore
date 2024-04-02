@@ -1,55 +1,54 @@
-import { Box, Stack, Typography } from "@mui/material";
-import uiConfigs from "../config/uiConfig";
-import hero from "../assets/images/hero3.webp";
+import { Box, Card, CardMedia, Grid, Paper, Typography } from "@mui/material";
+import Banner from "../assets/banner.webp";
+import Banner2 from "../assets/banner2.webp";
+import Banner3 from "../assets/banner3.webp";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import CartItem from "./CartItem";
+import CartGrid from "./CartGrid";
+// import Nike from "../assets/nike.webp";
 
-const Hero = () => {
+const Hero = ({ sneakers }) => {
   return (
-    <Box
-      sx={{
-        position: "relative",
-        color: "white",
-      }}
-    >
-      <Box
-        sx={{
-          height: "100vh",
-          backgroundPosition: "left",
-          backgroundSize: "cover",
-          backgroundImage: `url(${hero})`,
-          position: "relative",
-          zIndex: 1,
-          "&::before": {
-            content: '""',
-            width: "100%",
-            height: "100%",
-            position: "absolute",
-            top: 0,
-            left: 0,
-            zIndex: 2,
-            pointerEvents: "none",
-            // background: "rgba(0, 0, 0, 0.5)",
-            ...uiConfigs.style.gradientBgImage.dark,
-          },
-        }}
-      >
-        <Box
-          sx={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            textAlign: "center",
-            zIndex: 3,
+    <Grid container spacing={1}>
+      <Grid item xs={12}>
+        <Swiper
+          spaceBetween={30}
+          centeredSlides={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
           }}
+          pagination={{
+            clickable: true,
+          }}
+          navigation={true}
+          modules={[Autoplay, Pagination, Navigation]}
+          className="mySwiper"
         >
-          <Stack>
-            <Typography sx={{ typography: { sm: "h2", xs: "h5" } }}>
-              Швидко & Легкий спосіб оренди автомобіля
-            </Typography>
-          </Stack>
-        </Box>
-      </Box>
-    </Box>
+          <SwiperSlide>
+            <Card>
+              <CardMedia component="img" height="350" image={Banner} />
+            </Card>
+          </SwiperSlide>
+          <SwiperSlide>
+            <Card>
+              <CardMedia component="img" height="350" image={Banner2} />
+            </Card>
+          </SwiperSlide>
+          <SwiperSlide>
+            <Card>
+              <CardMedia component="img" height="350" image={Banner3} />
+            </Card>
+          </SwiperSlide>
+        </Swiper>
+      </Grid>
+      {/* <Grid item xs={12}>
+        <Typography variant="h6" mb={1}>
+          Новинки
+        </Typography>
+      </Grid> */}
+    </Grid>
   );
 };
 
